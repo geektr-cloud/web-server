@@ -1,0 +1,18 @@
+version: '3'
+services:
+  caddy:
+    image: abiosoft/caddy
+    restart: always
+    environment:
+      - ACME_AGREE=true
+    env_file:
+      - "$secrets_dir/caddy/caddy.env"
+    volumes:
+      - "$service_dir/conf/caddy/Caddyfile:/etc/Caddyfile:ro"
+      - "$service_dir/conf/caddy/www:/www:ro"
+      - "$data_dir/sites:/sites:ro"
+      - "$data_dir/vhosts:/vhosts:ro"
+      - "$data_dir/logs:/logs:rw"
+    ports:
+      - "80:80"
+      - "443:443"

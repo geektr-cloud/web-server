@@ -1,0 +1,10 @@
+http://{$WEB_SERVER_NUMBER}.web.geektr.cloud {
+    root /www
+}
+
+https://{$WEB_SERVER_NUMBER}.web.geektr.cloud {
+    tls geektheripper@gmail.com
+    root /www
+}
+
+import /vhosts/*
